@@ -1,0 +1,20 @@
+# Uncomment the next line to define a global platform for your project
+# platform :ios, '9.0'
+
+target 'iSpaceVideo' do
+  # Comment the next line if you don't want to use dynamic frameworks
+  pod 'SDWebImageSwiftUI'
+  use_frameworks!
+
+  # Pods for iSpaceVideo
+
+  target 'iSpaceVideoTests' do
+    inherit! :search_paths
+    # Pods for testing
+  end
+
+  target 'iSpaceVideoUITests' do
+    # Pods for testing
+  end
+
+end
