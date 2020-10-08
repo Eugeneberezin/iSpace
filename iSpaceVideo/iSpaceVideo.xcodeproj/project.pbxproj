@@ -19,6 +19,7 @@
 		0595F2FB252EA5B8000ED0A4 /* View+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0595F2F7252EA5B8000ED0A4 /* View+Extensions.swift */; };
 		0595F2FC252EA5B8000ED0A4 /* SavedVideoList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0595F2F8252EA5B8000ED0A4 /* SavedVideoList.swift */; };
 		0595F30C252EAE02000ED0A4 /* MoviesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0595F30B252EAE02000ED0A4 /* MoviesModel.swift */; };
+		05A62926252EBEB70013715B /* SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05A62925252EBEB70013715B /* SearchBar.swift */; };
 		37AED1115FBF844FC523E05E /* Pods_iSpaceVideoTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F3ABEB80656433BC359903D8 /* Pods_iSpaceVideoTests.framework */; };
 		AB459FEEB55519C6E47490F5 /* Pods_iSpaceVideo_iSpaceVideoUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BDEAA384911A749364DE97E7 /* Pods_iSpaceVideo_iSpaceVideoUITests.framework */; };
 		FC44A363EA7C9090519C0931 /* Pods_iSpaceVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D5909AA70B1DBCAF956459A /* Pods_iSpaceVideo.framework */; };
@@ -60,6 +61,7 @@
 		0595F2F7252EA5B8000ED0A4 /* View+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "View+Extensions.swift"; sourceTree = "<group>"; };
 		0595F2F8252EA5B8000ED0A4 /* SavedVideoList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SavedVideoList.swift; sourceTree = "<group>"; };
 		0595F30B252EAE02000ED0A4 /* MoviesModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesModel.swift; sourceTree = "<group>"; };
+		05A62925252EBEB70013715B /* SearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBar.swift; sourceTree = "<group>"; };
 		2982FE338ECA52E486F3DF62 /* Pods-iSpaceVideoTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iSpaceVideoTests.debug.xcconfig"; path = "Target Support Files/Pods-iSpaceVideoTests/Pods-iSpaceVideoTests.debug.xcconfig"; sourceTree = "<group>"; };
 		5406AE3280DC4C3D6D3443C3 /* Pods-iSpaceVideo-iSpaceVideoUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iSpaceVideo-iSpaceVideoUITests.release.xcconfig"; path = "Target Support Files/Pods-iSpaceVideo-iSpaceVideoUITests/Pods-iSpaceVideo-iSpaceVideoUITests.release.xcconfig"; sourceTree = "<group>"; };
 		5D5909AA70B1DBCAF956459A /* Pods_iSpaceVideo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_iSpaceVideo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -169,6 +171,7 @@
 				0595F2F8252EA5B8000ED0A4 /* SavedVideoList.swift */,
 				0595F2F6252EA5B8000ED0A4 /* VideoItemView.swift */,
 				0595F2BD252EA2F3000ED0A4 /* ContentView.swift */,
+				05A62925252EBEB70013715B /* SearchBar.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -462,6 +465,7 @@
 				0595F2FC252EA5B8000ED0A4 /* SavedVideoList.swift in Sources */,
 				0595F2C5252EA2F6000ED0A4 /* Persistence.swift in Sources */,
 				0595F2FA252EA5B8000ED0A4 /* VideoItemView.swift in Sources */,
+				05A62926252EBEB70013715B /* SearchBar.swift in Sources */,
 				0595F2BE252EA2F3000ED0A4 /* ContentView.swift in Sources */,
 				0595F2FB252EA5B8000ED0A4 /* View+Extensions.swift in Sources */,
 				0595F2BC252EA2F3000ED0A4 /* iSpaceVideoApp.swift in Sources */,
