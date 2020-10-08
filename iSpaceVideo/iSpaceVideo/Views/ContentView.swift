@@ -24,7 +24,6 @@ struct ContentView: View {
         NavigationView{
             VStack {
                 SearchBar(text: $searchTerm)
-                Text(searchTerm)
                 
                 ScrollView(.vertical) {
                 LazyVGrid(columns: [GridItem(.flexible(minimum: 300, maximum: 500), spacing: 0)]) {
