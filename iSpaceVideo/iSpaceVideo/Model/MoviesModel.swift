@@ -16,10 +16,16 @@ struct Items: Codable, Identifiable {
     var id = UUID()
     var href: String
     var links: [Link]
+    var data: [ItemData]
 }
 
 struct Link: Codable {
     var href: String?
     var render: String?
     var rel: String?
+}
+
+struct ItemData: Codable {
+    var description: String
+    var title: String
 }

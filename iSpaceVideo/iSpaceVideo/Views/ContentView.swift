@@ -24,7 +24,7 @@ struct ContentView: View {
         NavigationView{
             VStack {
                 SearchBar(text: $searchTerm)
-                
+                   
                 ScrollView(.vertical) {
                 LazyVGrid(columns: [GridItem(.flexible(minimum: 300, maximum: 500), spacing: 0)]) {
                         ForEach(0...30, id: \.self) { num in
@@ -42,12 +42,12 @@ struct ContentView: View {
                             
                             
                         }
+
                         
                     }
-                    .onAppear(perform: {
-                        print("$searchTerm")
-                    })
+                    
                 }
+ 
                 
                 .onTapGesture(count: /*@START_MENU_TOKEN@*/1/*@END_MENU_TOKEN@*/, perform: {
                     hideKeyboard()

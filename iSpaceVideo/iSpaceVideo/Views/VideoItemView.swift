@@ -20,7 +20,7 @@ struct VideoItemView: View {
                 .padding(.bottom)
             HStack {
                 
-                Text("NASA Administrator Jim Bridenstine asked commercial companies to help get the agency back to the Moon as quickly as possible during an ‘industry day', Tuesday, May 8, 2018 held at NASA Headquarters in Washington.  NASA is calling for commercial proposals for delivering instruments, experiments, and other small payloads to the surface of the Moon as early as next year. This solicitation is part of a broader Exploration Campaign that will pave the way for a human return to the Moon.")
+                Text("Go Forward to the Moon")
                     .padding(.leading)
                     .padding(.trailing)
                     .padding(.bottom)
@@ -46,7 +46,8 @@ struct VideoItemView: View {
                         Image(systemName: "trash.fill")
                             .font(.system(size: 35))
                             .foregroundColor(.red)
-                            .padding(.trailing)
+                            .padding()
+                            
                     }
                 }
                 
