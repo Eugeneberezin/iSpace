@@ -8,7 +8,7 @@
 import Foundation
 import SwiftUI
 
-enum MediaType: String {
+enum Media: String {
     case video = "&media_type=video"
 }
 
@@ -21,7 +21,7 @@ class NetworkManager {
     static let shared = NetworkManager()
     private let mediaType = MediaType.video.rawValue
     
-    func getVideos(completed: @escaping (Result<[Item], Error>)-> Void) {
+    func getVideos(completed: @escaping (Result<NasaCollection, Error>)-> Void) {
         let endpoint = "https://images-api.nasa.gov/search?q=apollo%2011&media_type=video"
         
         guard let url = URL(string: endpoint) else { return }
@@ -43,12 +43,11 @@ class NetworkManager {
             
             do {
                 let decoder = JSONDecoder()
-                decoder.dataDecodingStrategy = .base64
-                let videos = try decoder.decode([Item].self, from: data)
+                let videos = try decoder.decode(NasaCollection.self, from: data)
                 completed(.success(videos))
 
             } catch {
-                print(error.localizedDescription)
+                print(error)
 
             }
         
