@@ -12,7 +12,6 @@
 		0595F2C0252EA2F6000ED0A4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0595F2BF252EA2F6000ED0A4 /* Assets.xcassets */; };
 		0595F2C3252EA2F6000ED0A4 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0595F2C2252EA2F6000ED0A4 /* Preview Assets.xcassets */; };
 		0595F2C5252EA2F6000ED0A4 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0595F2C4252EA2F6000ED0A4 /* Persistence.swift */; };
-		0595F2C8252EA2F6000ED0A4 /* iSpaceVideo.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 0595F2C6252EA2F6000ED0A4 /* iSpaceVideo.xcdatamodeld */; };
 		0595F2D3252EA2F6000ED0A4 /* iSpaceVideoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0595F2D2252EA2F6000ED0A4 /* iSpaceVideoTests.swift */; };
 		0595F2DE252EA2F7000ED0A4 /* iSpaceVideoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0595F2DD252EA2F7000ED0A4 /* iSpaceVideoUITests.swift */; };
 		0595F2FA252EA5B8000ED0A4 /* VideoItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0595F2F6252EA5B8000ED0A4 /* VideoItemView.swift */; };
@@ -21,6 +20,7 @@
 		0595F30C252EAE02000ED0A4 /* MoviesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0595F30B252EAE02000ED0A4 /* MoviesModel.swift */; };
 		05A62926252EBEB70013715B /* SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05A62925252EBEB70013715B /* SearchBar.swift */; };
 		05A6292F252F52050013715B /* ErrorMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05A6292E252F52050013715B /* ErrorMessage.swift */; };
+		05A62938252FC5800013715B /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05A62937252FC5800013715B /* NetworkManager.swift */; };
 		37AED1115FBF844FC523E05E /* Pods_iSpaceVideoTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F3ABEB80656433BC359903D8 /* Pods_iSpaceVideoTests.framework */; };
 		AB459FEEB55519C6E47490F5 /* Pods_iSpaceVideo_iSpaceVideoUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BDEAA384911A749364DE97E7 /* Pods_iSpaceVideo_iSpaceVideoUITests.framework */; };
 		FC44A363EA7C9090519C0931 /* Pods_iSpaceVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D5909AA70B1DBCAF956459A /* Pods_iSpaceVideo.framework */; };
@@ -50,7 +50,6 @@
 		0595F2BF252EA2F6000ED0A4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0595F2C2252EA2F6000ED0A4 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		0595F2C4252EA2F6000ED0A4 /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
-		0595F2C7252EA2F6000ED0A4 /* iSpaceVideo.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = iSpaceVideo.xcdatamodel; sourceTree = "<group>"; };
 		0595F2C9252EA2F6000ED0A4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0595F2CE252EA2F6000ED0A4 /* iSpaceVideoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = iSpaceVideoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0595F2D2252EA2F6000ED0A4 /* iSpaceVideoTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iSpaceVideoTests.swift; sourceTree = "<group>"; };
@@ -64,6 +63,7 @@
 		0595F30B252EAE02000ED0A4 /* MoviesModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesModel.swift; sourceTree = "<group>"; };
 		05A62925252EBEB70013715B /* SearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBar.swift; sourceTree = "<group>"; };
 		05A6292E252F52050013715B /* ErrorMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorMessage.swift; sourceTree = "<group>"; };
+		05A62937252FC5800013715B /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		2982FE338ECA52E486F3DF62 /* Pods-iSpaceVideoTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iSpaceVideoTests.debug.xcconfig"; path = "Target Support Files/Pods-iSpaceVideoTests/Pods-iSpaceVideoTests.debug.xcconfig"; sourceTree = "<group>"; };
 		5406AE3280DC4C3D6D3443C3 /* Pods-iSpaceVideo-iSpaceVideoUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iSpaceVideo-iSpaceVideoUITests.release.xcconfig"; path = "Target Support Files/Pods-iSpaceVideo-iSpaceVideoUITests/Pods-iSpaceVideo-iSpaceVideoUITests.release.xcconfig"; sourceTree = "<group>"; };
 		5D5909AA70B1DBCAF956459A /* Pods_iSpaceVideo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_iSpaceVideo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -128,6 +128,7 @@
 		0595F2BA252EA2F3000ED0A4 /* iSpaceVideo */ = {
 			isa = PBXGroup;
 			children = (
+				05A62936252FC5600013715B /* Managers */,
 				05A6292D252F51DF0013715B /* Utilities */,
 				0595F30A252EADD7000ED0A4 /* Model */,
 				0595F305252EAD74000ED0A4 /* Extensions */,
@@ -136,7 +137,6 @@
 				0595F2C4252EA2F6000ED0A4 /* Persistence.swift */,
 				0595F304252EAD48000ED0A4 /* Views */,
 				0595F2C9252EA2F6000ED0A4 /* Info.plist */,
-				0595F2C6252EA2F6000ED0A4 /* iSpaceVideo.xcdatamodeld */,
 				0595F2C1252EA2F6000ED0A4 /* Preview Content */,
 			);
 			path = iSpaceVideo;
@@ -209,6 +209,14 @@
 				05A6292E252F52050013715B /* ErrorMessage.swift */,
 			);
 			path = Utilities;
+			sourceTree = "<group>";
+		};
+		05A62936252FC5600013715B /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				05A62937252FC5800013715B /* NetworkManager.swift */,
+			);
+			path = Managers;
 			sourceTree = "<group>";
 		};
 		51A287784DF8F3ECBBF7B6D3 /* Frameworks */ = {
@@ -472,9 +480,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				0595F30C252EAE02000ED0A4 /* MoviesModel.swift in Sources */,
-				0595F2C8252EA2F6000ED0A4 /* iSpaceVideo.xcdatamodeld in Sources */,
 				05A6292F252F52050013715B /* ErrorMessage.swift in Sources */,
 				0595F2FC252EA5B8000ED0A4 /* SavedVideoList.swift in Sources */,
+				05A62938252FC5800013715B /* NetworkManager.swift in Sources */,
 				0595F2C5252EA2F6000ED0A4 /* Persistence.swift in Sources */,
 				0595F2FA252EA5B8000ED0A4 /* VideoItemView.swift in Sources */,
 				05A62926252EBEB70013715B /* SearchBar.swift in Sources */,
@@ -806,19 +814,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCVersionGroup section */
-		0595F2C6252EA2F6000ED0A4 /* iSpaceVideo.xcdatamodeld */ = {
-			isa = XCVersionGroup;
-			children = (
-				0595F2C7252EA2F6000ED0A4 /* iSpaceVideo.xcdatamodel */,
-			);
-			currentVersion = 0595F2C7252EA2F6000ED0A4 /* iSpaceVideo.xcdatamodel */;
-			path = iSpaceVideo.xcdatamodeld;
-			sourceTree = "<group>";
-			versionGroupType = wrapper.xcdatamodel;
-		};
-/* End XCVersionGroup section */
 	};
 	rootObject = 0595F2B0252EA2F3000ED0A4 /* Project object */;
 }

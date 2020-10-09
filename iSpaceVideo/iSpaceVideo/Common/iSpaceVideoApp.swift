@@ -9,14 +9,13 @@ import SwiftUI
 
 @main
 struct iSpaceVideoApp: App {
-    let persistenceController = PersistenceController.shared
     @State private var selectedTap = ""
     
     var body: some Scene {
         WindowGroup {
             TabView(selection: $selectedTap) {
                 ContentView()
-                    .environment(\.managedObjectContext, persistenceController.container.viewContext)
+                    
                     .onTapGesture {
                         selectedTap = "videoList"
                     }
@@ -27,7 +26,6 @@ struct iSpaceVideoApp: App {
                     }
                     .tag("videoList")
                 SavedVideoList()
-                    .environment(\.managedObjectContext, persistenceController.container.viewContext)
                     .tabItem {
                         Image(systemName: "list.dash")
                             .foregroundColor(Color.init("tabBarImageColor"))

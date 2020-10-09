@@ -7,25 +7,60 @@
 
 import Foundation
 
+struct NasaCollection: Codable {
+    var collection: Collection
+}
+
+// MARK: - Collection
 struct Collection: Codable {
-    var items: [Items]
+    let version: String
+    let href: String
+    let items: [Item]
+}
+
+// MARK: - Item
+struct Item: Codable {
+    let href: String
+    let links: [ItemLink]
+    let data: Datum
     
 }
 
-struct Items: Codable, Identifiable {
-    var id = UUID()
-    var href: String
-    var links: [Link]
-    var data: [ItemData]
+// MARK: - ItemLink
+struct ItemLink: Codable {
+    let href: String
+    let render: Render?
+    
+    
 }
 
-struct Link: Codable {
-    var href: String?
-    var render: String?
-    var rel: String?
+// MARK: - Datum
+struct Datum: Codable {
+    let datumDescription: String
+    let dateCreated: Date
+    let keywords: [String]
+    let nasaID: String
+    let title: String
+    let location, description508, photographer, secondaryCreator: String?
+    let album: [String]?
+
 }
 
-struct ItemData: Codable {
-    var description: String
-    var title: String
+enum Render: String, Codable {
+    case image = "image"
+}
+
+// MARK: - CollectionLink
+struct CollectionLink: Codable {
+    let prompt, rel: String
+    let href: String
+}
+
+// MARK: - Metadata
+struct Metadata: Codable {
+    let totalHits: Int
+
+    enum CodingKeys: String, CodingKey {
+        case totalHits = "total_hits"
+    }
 }
