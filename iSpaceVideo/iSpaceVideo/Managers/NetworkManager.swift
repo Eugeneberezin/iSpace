@@ -19,42 +19,42 @@ enum URLString: String {
 class NetworkManager {
     
     static let shared = NetworkManager()
-    private let mediaType = MediaType.video.rawValue
+    private let mediaType = Media.video.rawValue
     
-    func getVideos(completed: @escaping (Result<NasaCollection, Error>)-> Void) {
+    func getVideos(completed: @escaping (Result<[Item], Error>)-> Void) {
         let endpoint = "https://images-api.nasa.gov/search?q=apollo%2011&media_type=video"
         
-        guard let url = URL(string: endpoint) else { return }
+        guard let url = URL(string: endpoint) else {
+            completed(.failure(NetworkError.invalidURL))
+            return
+        }
         
-        let task = URLSession.shared.dataTask(with: url) { (data, response, error) in
-            if let _ = error {
-                completed(.failure(error?.localizedDescription as! Error))
+        URLSession.shared.dataTask(with: url) { (data, response, error) in
+            if let error = error {
+                completed(.failure(error))
             }
             
             guard let response = response as? HTTPURLResponse, response.statusCode == 200 else {
-                completed(.failure(error?.localizedDescription as! Error))
+                completed(.failure(NetworkError.response))
                 return
             }
             
             guard let data = data else {
-                completed(.failure(error?.localizedDescription as! Error))
+                completed(.failure(NetworkError.data))
                 return
             }
             
             do {
                 let decoder = JSONDecoder()
-                let videos = try decoder.decode(NasaCollection.self, from: data)
-                completed(.success(videos))
-
+                decoder.dateDecodingStrategy = .iso8601
+                let results = try decoder.decode(NasaCollection.self, from: data)
+                completed(.success(results.collection.items))
             } catch {
-                print(error)
-
+                completed(.failure(NetworkError.decoding))
             }
-        
-        }
-        task.resume()
-        
+        }.resume()
     }
+
     
     
 }

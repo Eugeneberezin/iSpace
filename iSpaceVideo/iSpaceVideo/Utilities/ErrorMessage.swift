@@ -7,9 +7,24 @@
 
 import Foundation
 
-enum ErrorMessage: String, Error {
-    case badRequest = "Oops... It's not you, it's us. Please try again"
-    case notFound = "We couldn't find what you're looking for. Try again"
-    case serverError = "We're experiencing technical difficulties. Please try again later"
+enum NetworkError: LocalizedError{
+    case response
+    case data
+    case decoding
+    case invalidURL
+    
+    var errorDescription: String? {
+        switch self {
+        case .response:
+            return "The response is invalid"
+        case .data:
+            return "The data is not available"
+        case .decoding:
+            return "The decoder failed"
+        case .invalidURL:
+            return "The url is invalid"
+        }
+    }
 }
+
 
