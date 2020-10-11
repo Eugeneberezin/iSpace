@@ -10,7 +10,6 @@ import CoreData
 import SDWebImageSwiftUI
 
 struct ContentView: View {
-    
     @State private var searchTerm = ""
     @ObservedObject var viewModel = ContentModel()
 
@@ -24,10 +23,8 @@ struct ContentView: View {
                     Text("Search for Nasa Videos")
                         .font(.system(size: 35)).bold()
                         .foregroundColor(.white)
-                        
                 }
                
-                
                 ScrollView(.vertical) {
                     if viewModel.isActivityIndicatorShowing {
                         ProgressView()
@@ -60,8 +57,6 @@ struct ContentView: View {
                     hideKeyboard()
                 }
             }
-           
-            
             .navigationTitle("NASA Videos")
             .background(
                 Image("nightSky")
@@ -76,8 +71,10 @@ struct ContentView: View {
     }
     
     func searchMovies(for searchText: String) {
+        
         if !searchText.isEmpty {
             DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
+                viewModel.text = searchTerm
                 viewModel.getVideos(for: searchText)
             }
             

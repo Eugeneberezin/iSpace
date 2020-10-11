@@ -12,12 +12,13 @@ class ContentModel: ObservableObject {
      @Published var items = [Item]()
      @Published var savedItems = [Item]()
      @Published var isActivityIndicatorShowing = false
+     @Published var text = ""
     
     init() {}
     
     func getVideos(for searchTerm: String) {
         self.isActivityIndicatorShowing = true
-        NetworkManager.shared.getVideos(searchTerm: searchTerm, mediaType: Media.video) { result in
+        NetworkManager.shared.getVideos(searchTerm: text, mediaType: Media.video) { result in
     
             switch result {
             case .success(let items):
