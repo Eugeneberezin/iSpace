@@ -75,7 +75,7 @@ struct ContentView: View {
         if !searchText.isEmpty {
             DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
                 viewModel.text = searchTerm
-                viewModel.getVideos(for: searchText)
+                viewModel.getVideos(for: viewModel.text)
             }
             
         } else {
