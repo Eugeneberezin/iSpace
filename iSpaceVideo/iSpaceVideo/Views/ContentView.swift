@@ -10,56 +10,58 @@ import CoreData
 import SDWebImageSwiftUI
 
 struct ContentView: View {
-  
     
-    let url = "https://images-assets.nasa.gov/video/NHQ_2018_0508_Administrator Bridenstine - We Are Going the Moon/NHQ_2018_0508_Administrator Bridenstine - We Are Going the Moon~thumb.jpg".replacingOccurrences(of: " ", with: "%20")
-    @State var searchTerm = ""
-    
+    @State private var searchTerm = ""
+    @ObservedObject var viewModel = ContentModel()
+
     var body: some View {
         NavigationView{
             VStack {
-                SearchBar(text: $searchTerm)
-                   
-                ScrollView(.vertical) {
-                LazyVGrid(columns: [GridItem(.flexible(minimum: 300, maximum: 500), spacing: 0)]) {
-                        ForEach(0...30, id: \.self) { num in
-                            VideoItemView(image:
-                                            WebImage(url: URL(string: url), options: .delayPlaceholder)
-                                            
-                                            .placeholder {
-                                                Image("placeholder")
-                                                    .resizable()
-                                                    .scaledToFit()
-                                                
-                                            }
-                                          
-                            )
-                            
-                            
-                        }
-
-                        
-                    }
-                .onAppear {
-                    NetworkManager.shared.getVideos() { result in
-                        
-                        switch result {
-                        case .success(let videos):
-                            debugPrint(videos)
-                        case .failure(let error):
-                            debugPrint(error.localizedDescription)
-                        }
-                        
-                    }
-                }
-                    
-                }
- 
                 
-                .onTapGesture(count: /*@START_MENU_TOKEN@*/1/*@END_MENU_TOKEN@*/, perform: {
+                SearchBar(text: $searchTerm, onTextChanged: searchMovies(for:))
+                
+                if viewModel.items.isEmpty {
+                    Text("Search for Nasa Videos")
+                        .font(.system(size: 35)).bold()
+                        .foregroundColor(.white)
+                        
+                }
+               
+                
+                ScrollView(.vertical) {
+                    if viewModel.isActivityIndicatorShowing {
+                        ProgressView()
+                            .padding()
+                            .progressViewStyle(CircularProgressViewStyle.init(tint: Color.yellow))
+                            
+                    }
+                
+                    LazyVGrid(columns: [GridItem(.flexible(minimum: 300, maximum: 500), spacing: 0)]) {
+                        ForEach(viewModel.items) { item in
+                            
+                            if let urlString = item.links.first?.href.formatURLString() {
+                                if urlString.hasSuffix("jpg") {
+                                    VideoItemView(image:
+                                                    WebImage(url: URL(string: urlString), options: .delayPlaceholder)
+                                                    .placeholder {
+                                                        Image("placeholder")
+                                                            .resizable()
+                                                            .scaledToFit()
+                                                        
+                                                    }, title: item.data.first?.title ?? "N/A")
+                                    
+                                    
+                                }
+                            }
+                        }
+                    }
+                }
+                .onTapGesture{
                     hideKeyboard()
-                })
+                }
             }
+           
+            
             .navigationTitle("NASA Videos")
             .background(
                 Image("nightSky")
@@ -72,8 +74,19 @@ struct ContentView: View {
             
         }
     }
-}
     
+    func searchMovies(for searchText: String) {
+        if !searchText.isEmpty {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
+                viewModel.getVideos(for: searchText)
+            }
+            
+        } else {
+            viewModel.items.removeAll()
+        }
+    }
+}
+
 private let itemFormatter: DateFormatter = {
     let formatter = DateFormatter()
     formatter.dateStyle = .short

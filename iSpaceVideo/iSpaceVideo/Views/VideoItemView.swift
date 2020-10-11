@@ -9,8 +9,10 @@ import SwiftUI
 import SDWebImageSwiftUI
 
 struct VideoItemView: View {
-    var image = WebImage(url: URL(string: "https://images-assets.nasa.gov/video/JPL-20190606-TECHf-0001-Mars%20Chopper%20Ready%20for%20a%20Spin%20on%20Mars/JPL-20190606-TECHf-0001-Mars%20Chopper%20Ready%20for%20a%20Spin%20on%20Mars~thumb.jpg"))
+    var image = WebImage(url: URL(string: ""))
+    var title = ""
     @State var isButtonHidden = false
+    @ObservedObject var viewModel = ContentModel()
     
     var body: some View {
         VStack {
@@ -20,7 +22,7 @@ struct VideoItemView: View {
                 .padding(.bottom)
             HStack {
                 
-                Text("Go Forward to the Moon")
+                Text(title.replacingOccurrences(of: "_", with: " "))
                     .padding(.leading)
                     .padding(.trailing)
                     .padding(.bottom)

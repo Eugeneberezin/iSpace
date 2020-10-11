@@ -12,22 +12,38 @@ import SwiftUI
 struct SearchBar : UIViewRepresentable {
     
     @Binding var text : String
+    var onTextChanged: (String) -> Void
     
-    class Cordinator : NSObject, UISearchBarDelegate {
+    class Coordinator : NSObject, UISearchBarDelegate {
+        @Binding var text: String
+        var onTextChanged: (String) -> Void
         
-        @Binding var text : String
-        
-        init(text : Binding<String>) {
+        init(text: Binding<String>, onTextChanged: @escaping (String) -> Void) {
             _text = text
+            self.onTextChanged = onTextChanged
+        }
+        
+        // Show cancel button when the user begins editing the search text
+        func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
+            searchBar.showsCancelButton = true
         }
         
         func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
             text = searchText
+            onTextChanged(text)
+        }
+        
+        func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+            text = ""
+            searchBar.showsCancelButton = false
+            searchBar.endEditing(true)
+            // Send back empty string text to search view, trigger self.model.searchResults.removeAll()
+            onTextChanged(text)
         }
     }
     
-    func makeCoordinator() -> SearchBar.Cordinator {
-        return Cordinator(text: $text)
+    func makeCoordinator() -> SearchBar.Coordinator {
+        return Coordinator(text: $text, onTextChanged: onTextChanged)
     }
     
     func makeUIView(context: UIViewRepresentableContext<SearchBar>) -> UISearchBar {
@@ -43,3 +59,9 @@ struct SearchBar : UIViewRepresentable {
 }
 
 
+
+struct SearchBar_Previews: PreviewProvider {
+    static var previews: some View {
+        /*@START_MENU_TOKEN@*/Text("Hello, World!")/*@END_MENU_TOKEN@*/
+    }
+}

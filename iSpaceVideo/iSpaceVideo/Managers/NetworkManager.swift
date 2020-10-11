@@ -21,8 +21,12 @@ class NetworkManager {
     static let shared = NetworkManager()
     private let mediaType = Media.video.rawValue
     
-    func getVideos(completed: @escaping (Result<[Item], Error>)-> Void) {
-        let endpoint = "https://images-api.nasa.gov/search?q=apollo%2011&media_type=video"
+    func getVideos(searchTerm: String, mediaType: Media, completed: @escaping (Result<[Item], Error>)-> Void) {
+        
+        let endpoint = "\(URLString.baseURL.rawValue)\(searchTerm.lowercased().formatURLString())\(mediaType.rawValue)"
+        
+        debugPrint(endpoint)
+       
         
         guard let url = URL(string: endpoint) else {
             completed(.failure(NetworkError.invalidURL))
@@ -53,7 +57,10 @@ class NetworkManager {
                 completed(.failure(NetworkError.decoding))
             }
         }.resume()
+    
+    
     }
+    
 
     
     
