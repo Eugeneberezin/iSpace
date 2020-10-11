@@ -11,6 +11,7 @@ import SDWebImageSwiftUI
 
 struct ContentView: View {
     @State private var searchTerm = ""
+    @State private var isAlertShowing = false
     @ObservedObject var viewModel = ContentModel()
 
     var body: some View {
@@ -57,6 +58,9 @@ struct ContentView: View {
                     hideKeyboard()
                 }
             }
+            .alert(isPresented: $isAlertShowing, content: {
+                Alert(title: Text("Oops. Something went wrong"), message: Text(viewModel.errorMessage), dismissButton: .cancel())
+            })
             .navigationTitle("NASA Videos")
             .background(
                 Image("nightSky")
@@ -72,8 +76,10 @@ struct ContentView: View {
     
     func searchMovies(for searchText: String) {
         viewModel.text = searchTerm
+        isAlertShowing = viewModel.showAlert
         if !searchText.isEmpty {
-            DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
+            viewModel.isActivityIndicatorShowing = true
+            DispatchQueue.main.asyncAfter(deadline: .now() + 4.0) {
                 viewModel.getVideos(for: viewModel.text)
             }
             

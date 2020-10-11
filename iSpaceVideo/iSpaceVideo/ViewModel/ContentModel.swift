@@ -13,6 +13,8 @@ class ContentModel: ObservableObject {
      @Published var savedItems = [Item]()
      @Published var isActivityIndicatorShowing = false
      @Published var text = ""
+     @Published var errorMessage = ""
+     @Published var showAlert = false
     
     init() {}
     
@@ -30,6 +32,8 @@ class ContentModel: ObservableObject {
             case .failure(let error):
                 DispatchQueue.main.async {
                     self.isActivityIndicatorShowing = false
+                    self.showAlert.toggle()
+                    self.errorMessage = error.localizedDescription
                 }
                 debugPrint(error)
             }
