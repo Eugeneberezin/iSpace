@@ -71,10 +71,9 @@ struct ContentView: View {
     }
     
     func searchMovies(for searchText: String) {
-        
+        viewModel.text = searchTerm
         if !searchText.isEmpty {
             DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
-                viewModel.text = searchTerm
                 viewModel.getVideos(for: viewModel.text)
             }
             
