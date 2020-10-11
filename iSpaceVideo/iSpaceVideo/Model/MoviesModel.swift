@@ -32,11 +32,11 @@ struct ItemLink: Codable {
 }
 // MARK: - Datum
 struct Datum: Codable {
-    let nasaID: String
+    let nasaID: String?
     let myDescription: String?
-    let dateCreated: Date
-    let keywords: [String]
-    let title: String
+    let dateCreated: Date?
+    let keywords: [String]?
+    let title: String?
     
     //Not apart of API
     let location: String?
@@ -65,12 +65,12 @@ enum Render: String, Codable {
 }
 // MARK: - CollectionLink
 struct CollectionLink: Codable {
-    let prompt, rel: String
-    let href: String
+    let prompt, rel: String?
+    let href: String?
 }
 // MARK: - Metadata
 struct Metadata: Codable {
-    let totalHits: Int
+    let totalHits: Int?
     enum CodingKeys: String, CodingKey {
         case totalHits = "total_hits"
     }
