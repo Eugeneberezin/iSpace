@@ -7,6 +7,7 @@
 
 import Foundation
 import SwiftUI
+import Combine
 
 enum Media: String {
     case video = "&media_type=video"
@@ -21,44 +22,25 @@ class NetworkManager {
     static let shared = NetworkManager()
     private let mediaType = Media.video.rawValue
     
-    func getVideos(searchTerm: String, mediaType: Media, completed: @escaping (Result<[Item], Error>)-> Void) {
+    func getVideos(searchTerm: String, mediaType: Media) -> AnyPublisher<[Item], Error> {
         
         let endpoint = "\(URLString.baseURL.rawValue)\(searchTerm.lowercased().formatURLString())\(mediaType.rawValue)"
+        let decoder = JSONDecoder()
+        decoder.dateDecodingStrategy = .iso8601
         
         debugPrint(endpoint)
        
-        
-        guard let url = URL(string: endpoint) else {
-            completed(.failure(NetworkError.invalidURL))
-            return
+        guard let url = URL(string: endpoint) else{
+            return Fail(error: NetworkError.invalidURL).eraseToAnyPublisher()
         }
         
-        URLSession.shared.dataTask(with: url) { (data, response, error) in
-            if let error = error {
-                completed(.failure(error))
-            }
-            
-            guard let response = response as? HTTPURLResponse, response.statusCode == 200 else {
-                completed(.failure(NetworkError.response))
-                return
-            }
-            
-            guard let data = data else {
-                completed(.failure(NetworkError.data))
-                return
-            }
-            
-            do {
-                let decoder = JSONDecoder()
-                decoder.dateDecodingStrategy = .iso8601
-                let results = try decoder.decode(NasaCollection.self, from: data)
-                completed(.success(results.collection.items))
-            } catch {
-                completed(.failure(NetworkError.decoding))
-            }
-        }.resume()
-    
-    
+        return URLSession.shared.dataTaskPublisher(for: url)
+            .map(\.data)
+            .decode(type: NasaCollection.self, decoder: decoder)
+            .map{$0.collection.items}
+            .receive(on: DispatchQueue.main)
+            .eraseToAnyPublisher()
+
     }
     
 

@@ -7,6 +7,7 @@
 
 import Foundation
 import SwiftUI
+import Combine
 
 class ContentModel: ObservableObject {
      @Published var items = [Item]()
@@ -15,29 +16,27 @@ class ContentModel: ObservableObject {
      @Published var text = ""
      @Published var errorMessage = ""
      @Published var showAlert = false
+     @Published var error: Error?
+     private var subscriptions = Set<AnyCancellable>()
     
     init() {}
     
     func getVideos(for searchTerm: String) {
         self.isActivityIndicatorShowing = true
-        NetworkManager.shared.getVideos(searchTerm: text, mediaType: Media.video) { result in
-    
-            switch result {
-            case .success(let items):
-                DispatchQueue.main.async {
-                    self.isActivityIndicatorShowing = false
-                    self.items = items
+        NetworkManager.shared.getVideos(searchTerm: searchTerm, mediaType: Media.video)
+            .sink(receiveCompletion: { [weak self] in
+                if case .failure(let error) = $0{
+                    self?.error = error
+                    self?.showAlert = true
                 }
-                
-            case .failure(let error):
-                DispatchQueue.main.async {
-                    self.isActivityIndicatorShowing = false
-                    self.showAlert.toggle()
-                    self.errorMessage = error.localizedDescription
-                }
-                debugPrint(error)
-            }
-        }
+            }, receiveValue: { [weak self] items in
+                self?.isActivityIndicatorShowing = false
+                //Simulate loading
+//                DispatchQueue.main.asyncAfter(deadline: .now() + 3, execute: {
+                    self?.items = items
+//                })
+            }).store(in: &subscriptions)
+
     }
     
     func save(item: Item) {
