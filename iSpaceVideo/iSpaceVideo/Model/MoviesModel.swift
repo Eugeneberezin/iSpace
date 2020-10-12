@@ -17,12 +17,15 @@ struct Collection: Codable {
     let items: [Item]
 }
 // MARK: - Item
-struct Item: Codable, Identifiable {
+struct Item: Codable, Identifiable, Equatable {
     let href: String
     let links: [ItemLink]
     let data: [Datum]
     var id: String {
         href
+    }
+    static func == (lhs: Item, rhs: Item) -> Bool {
+        return lhs.id == rhs.id
     }
 }
 // MARK: - ItemLink

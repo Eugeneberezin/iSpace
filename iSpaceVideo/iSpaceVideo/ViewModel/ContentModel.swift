@@ -40,4 +40,14 @@ class ContentModel: ObservableObject {
         }
     }
     
+    func save(item: Item) {
+        savedItems.append(item)
+    }
+    
+    func delete(item: Item) {
+        if let index = savedItems.firstIndex(of: item) {
+            savedItems.remove(at: index)
+        }
+    }
+    
 }
