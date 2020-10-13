@@ -47,8 +47,6 @@ struct ContentView: View {
                                                             .scaledToFit()
                                                         
                                                     }, title: item.data.first?.title ?? "N/A")
-                                    
-                                    
                                 }
                             }
                         }

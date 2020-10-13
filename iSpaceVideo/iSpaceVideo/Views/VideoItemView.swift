@@ -33,8 +33,7 @@ struct VideoItemView: View {
                 
                 if !isButtonHidden {
                     Button( action: {
-                        if manager.savedItems.contains(item){
-                        } else {
+                        if !manager.savedItems.contains(item){
                             manager.savedItems.append(item)
                         }
                         
@@ -55,7 +54,6 @@ struct VideoItemView: View {
                             .font(.system(size: 35))
                             .foregroundColor(.red)
                             .padding()
-                            
                     }
                 }
                 
@@ -66,9 +64,6 @@ struct VideoItemView: View {
         .padding(.bottom, -25)
         
     }
-    
-    
-    
 }
 
 struct VideoItemView_Previews: PreviewProvider {
