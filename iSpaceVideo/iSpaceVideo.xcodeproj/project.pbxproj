@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		050A5F222535254500BF3D18 /* PersistenceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 050A5F212535254500BF3D18 /* PersistenceManager.swift */; };
 		050A5F27253530DA00BF3D18 /* WarningView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 050A5F26253530DA00BF3D18 /* WarningView.swift */; };
+		050A5F2C2536215F00BF3D18 /* SearchBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 050A5F2B2536215F00BF3D18 /* SearchBarView.swift */; };
 		0587D437253226B100ECA89E /* String+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0587D436253226B100ECA89E /* String+Extensions.swift */; };
 		0587D43C2532565B00ECA89E /* ContentModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0587D43B2532565B00ECA89E /* ContentModel.swift */; };
 		0595F2BC252EA2F3000ED0A4 /* iSpaceVideoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0595F2BB252EA2F3000ED0A4 /* iSpaceVideoApp.swift */; };
@@ -49,6 +50,7 @@
 /* Begin PBXFileReference section */
 		050A5F212535254500BF3D18 /* PersistenceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceManager.swift; sourceTree = "<group>"; };
 		050A5F26253530DA00BF3D18 /* WarningView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WarningView.swift; sourceTree = "<group>"; };
+		050A5F2B2536215F00BF3D18 /* SearchBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBarView.swift; sourceTree = "<group>"; };
 		0587D436253226B100ECA89E /* String+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extensions.swift"; sourceTree = "<group>"; };
 		0587D43B2532565B00ECA89E /* ContentModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentModel.swift; sourceTree = "<group>"; };
 		0595F2B8252EA2F3000ED0A4 /* iSpaceVideo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iSpaceVideo.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -152,7 +154,6 @@
 				0595F304252EAD48000ED0A4 /* Views */,
 				0595F2C9252EA2F6000ED0A4 /* Info.plist */,
 				0595F2C1252EA2F6000ED0A4 /* Preview Content */,
-				050A5F212535254500BF3D18 /* PersistenceManager.swift */,
 			);
 			path = iSpaceVideo;
 			sourceTree = "<group>";
@@ -191,6 +192,7 @@
 				0595F2BD252EA2F3000ED0A4 /* ContentView.swift */,
 				05A62925252EBEB70013715B /* SearchBar.swift */,
 				050A5F26253530DA00BF3D18 /* WarningView.swift */,
+				050A5F2B2536215F00BF3D18 /* SearchBarView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -232,6 +234,7 @@
 			isa = PBXGroup;
 			children = (
 				05A62937252FC5800013715B /* NetworkManager.swift */,
+				050A5F212535254500BF3D18 /* PersistenceManager.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -506,6 +509,7 @@
 				050A5F27253530DA00BF3D18 /* WarningView.swift in Sources */,
 				0595F2FA252EA5B8000ED0A4 /* VideoItemView.swift in Sources */,
 				05A62926252EBEB70013715B /* SearchBar.swift in Sources */,
+				050A5F2C2536215F00BF3D18 /* SearchBarView.swift in Sources */,
 				0595F2BE252EA2F3000ED0A4 /* ContentView.swift in Sources */,
 				0595F2FB252EA5B8000ED0A4 /* View+Extensions.swift in Sources */,
 				0595F2BC252EA2F3000ED0A4 /* iSpaceVideoApp.swift in Sources */,

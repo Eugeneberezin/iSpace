@@ -18,7 +18,13 @@ struct VideoItemView: View {
     var body: some View {
         VStack {
             image
+                .placeholder(
+                    Image("placeholder")
+                        .resizable()
+                        
+                )
                 .resizable()
+                
                 .scaledToFit()
                 .padding(.bottom)
             HStack {
@@ -58,7 +64,7 @@ struct VideoItemView: View {
                 }
                 
             }
-            .background(Color.init("titleBackGround"))
+            .background(Color.black)
             .offset(x: 0, y: -24)
         }
         .padding(.bottom, -25)

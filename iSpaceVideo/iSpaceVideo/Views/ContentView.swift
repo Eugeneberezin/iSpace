@@ -18,8 +18,12 @@ struct ContentView: View {
         NavigationView{
             VStack {
                 
-                SearchBar(text: $searchTerm, onTextChanged: searchMovies(for:))
-                
+                    SearchBarView(text: $searchTerm)
+                        .padding(.bottom)
+                        .background(Color.init("SearchBarBackground"))
+                        .onChange(of: searchTerm, perform: { _ in
+                            searchMovies(for: searchTerm)
+                        })
                 if viewModel.items.isEmpty {
                     Text("Search for Nasa Videos")
                         .font(.system(size: 35)).bold()
@@ -70,6 +74,10 @@ struct ContentView: View {
             )
             
         }
+        
+        
+
+        
     }
     
     func searchMovies(for searchText: String) {
