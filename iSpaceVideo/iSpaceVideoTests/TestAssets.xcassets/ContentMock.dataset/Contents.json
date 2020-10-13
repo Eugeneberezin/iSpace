@@ -1,0 +1,12 @@
+{
+  "data" : [
+    {
+      "filename" : "ContentMock.json",
+      "idiom" : "universal"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}

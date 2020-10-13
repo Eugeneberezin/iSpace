@@ -29,7 +29,7 @@ class NetworkManager {
         decoder.dateDecodingStrategy = .iso8601
         
         debugPrint(endpoint)
-       
+        
         guard let url = URL(string: endpoint) else{
             return Fail(error: NetworkError.invalidURL).eraseToAnyPublisher()
         }
@@ -40,10 +40,7 @@ class NetworkManager {
             .map{$0.collection.items}
             .receive(on: DispatchQueue.main)
             .eraseToAnyPublisher()
-
+        
     }
-    
-
-    
     
 }

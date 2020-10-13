@@ -39,10 +39,7 @@ struct VideoItemView: View {
                 
                 if !isButtonHidden {
                     Button( action: {
-                        if !manager.savedItems.contains(item){
-                            manager.savedItems.append(item)
-                        }
-                        
+                        save()
                     }) {
                         Image(systemName: "bookmark.fill")
                             .font(.system(size: 45))
@@ -52,9 +49,7 @@ struct VideoItemView: View {
                     
                 } else {
                     Button( action: {
-                        if manager.savedItems.contains(item){
-                            manager.savedItems.removeAll(where: {$0 == item})
-                        }
+                        delete()
                     }) {
                         Image(systemName: "trash.fill")
                             .font(.system(size: 35))
@@ -69,6 +64,18 @@ struct VideoItemView: View {
         }
         .padding(.bottom, -25)
         
+    }
+    
+    func save() {
+        if !manager.savedItems.contains(item){
+            manager.savedItems.append(item)
+        }
+    }
+    
+    func delete() {
+        if manager.savedItems.contains(item){
+            manager.savedItems.removeAll(where: {$0 == item})
+        }
     }
 }
 

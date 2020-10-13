@@ -1,22 +1,30 @@
 PODS:
+  - Mocker (2.2.0)
   - SDWebImage (5.9.2):
     - SDWebImage/Core (= 5.9.2)
   - SDWebImage/Core (5.9.2)
   - SDWebImageSwiftUI (1.5.0):
     - SDWebImage (~> 5.7)
+  - ViewInspector (0.4.10)
 
 DEPENDENCIES:
+  - Mocker
   - SDWebImageSwiftUI
+  - ViewInspector
 
 SPEC REPOS:
   trunk:
+    - Mocker
     - SDWebImage
     - SDWebImageSwiftUI
+    - ViewInspector
 
 SPEC CHECKSUMS:
+  Mocker: d0ceb340eddd5c28539a691ce67d068674cef9a0
   SDWebImage: 0b42b8719ab0c5257177d5894306e8a336b21cbb
   SDWebImageSwiftUI: 43687ffe232ddd33fe0659498b7ca9884fdd6b35
+  ViewInspector: 0e9f42973fc42794ee58764317c722ef490ba3d8
 
-PODFILE CHECKSUM: 6ea947201259e8be2971463a157ecc5b777c89b2
+PODFILE CHECKSUM: b2f4e0d47433152fe20d63aedab4ca455d353c05
 
 COCOAPODS: 1.8.4

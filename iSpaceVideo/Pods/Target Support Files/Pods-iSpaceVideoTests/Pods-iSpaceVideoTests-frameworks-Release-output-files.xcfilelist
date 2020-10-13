@@ -1,0 +1,2 @@
+${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Mocker.framework
+${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ViewInspector.framework

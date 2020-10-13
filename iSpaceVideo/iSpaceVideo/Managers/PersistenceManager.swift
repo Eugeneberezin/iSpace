@@ -25,12 +25,12 @@ class PersistenceManager: ObservableObject{
 public struct UserDefaultCodable<T: Codable> {
     let key: String
     let defaultValue: T
-
+    
     init(_ key: String, defaultValue: T) {
         self.key = key
         self.defaultValue = defaultValue
     }
-
+    
     public var wrappedValue: T {
         get {
             if let data = UserDefaults.standard.data(forKey: key) {

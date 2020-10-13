@@ -5,9 +5,13 @@
 //  Created by Eugene Berezin on 10/7/20.
 //
 
-import SwiftUI
+
 
 import SwiftUI
+
+/*
+ When I started working on the project I decided to create UIViewRepresentable but later on I thought it would be a better user experience to create a search bar in SwiftUI. SearchBar as UIViewRepresentable has two UI bugs delete text button and cancel button are not working on tap gesture and only work on long press gesture which is not what a user expects. I am not sure if it has something to do with a simulator but to provide more smooth experience I replaced it with a native SwiftUI search bar that I built for this project.
+ */
 
 struct SearchBar : UIViewRepresentable {
     

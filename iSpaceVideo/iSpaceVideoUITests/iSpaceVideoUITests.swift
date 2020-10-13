@@ -7,14 +7,21 @@
 
 import XCTest
 
+/*
+ This is an example of UI test for my app.
+ Lucky UI test work exactly the same as they do in UIKit so nothing new there.
+ For my UI test I use Page Object Model that I have modified for the iOS infrastructure.
+For each screen (or ф group of screens) I create a Screen Object Model that would contain all the XCUIQueries for for each element that I use. Each object model would contain static methods that we can use for the most common actions.
+ Think about Page Object Model as a View Model but for UI tests. 
+ 
+ */
+
 class iSpaceVideoUITests: XCTestCase {
 
     override func setUpWithError() throws {
         let app = XCUIApplication()
         app.launch()
         continueAfterFailure = false
-        
-   
     }
 
     override func tearDownWithError() throws {

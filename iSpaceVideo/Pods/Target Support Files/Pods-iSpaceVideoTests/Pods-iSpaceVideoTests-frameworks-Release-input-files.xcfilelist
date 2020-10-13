@@ -1,0 +1,3 @@
+${PODS_ROOT}/Target Support Files/Pods-iSpaceVideoTests/Pods-iSpaceVideoTests-frameworks.sh
+${BUILT_PRODUCTS_DIR}/Mocker/Mocker.framework
+${BUILT_PRODUCTS_DIR}/ViewInspector/ViewInspector.framework
