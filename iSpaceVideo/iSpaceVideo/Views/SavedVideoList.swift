@@ -13,22 +13,17 @@ struct SavedVideoList: View {
     
     let url = "https://images-assets.nasa.gov/video/NHQ_2018_0508_Administrator Bridenstine - We Are Going the Moon/NHQ_2018_0508_Administrator Bridenstine - We Are Going the Moon~thumb.jpg".replacingOccurrences(of: " ", with: "%20")
     @State var searchTerm = ""
-    
+    @EnvironmentObject var manager: PersistenceManager
     
     var body: some View {
         NavigationView{
             VStack {
                 ScrollView(.vertical) {
-                    ForEach(0...20, id: \.self) { num in
-                        VideoItemView(image:
-                                        WebImage(url: URL(string: url), options: .delayPlaceholder)
-                                        .placeholder {
-                                            Image("placeholder")
-                                                .resizable()
-                                                .scaledToFit()
-                                        },
-                        isButtonHidden: true
-                        )
+                    ForEach(manager.savedItems) { item in
+                        if let urlString = item.links.first?.href.formatURLString() {
+                            VideoItemView(manager: _manager, isButtonHidden: true, item: item, image: WebImage(url: URL(string: urlString)), title: item.data.first?.title ?? "N/A")
+                        }
+
                     }
                     
                 }

@@ -9,10 +9,11 @@ import SwiftUI
 import SDWebImageSwiftUI
 
 struct VideoItemView: View {
+    @EnvironmentObject var manager: PersistenceManager
+    var isButtonHidden = false
+    let item: Item
     var image = WebImage(url: URL(string: ""))
     var title = ""
-    @State var isButtonHidden = false
-    @ObservedObject var viewModel = ContentModel()
     
     var body: some View {
         VStack {
@@ -21,7 +22,6 @@ struct VideoItemView: View {
                 .scaledToFit()
                 .padding(.bottom)
             HStack {
-                
                 Text(title.replacingOccurrences(of: "_", with: " "))
                     .padding(.leading)
                     .padding(.trailing)
@@ -33,6 +33,10 @@ struct VideoItemView: View {
                 
                 if !isButtonHidden {
                     Button( action: {
+                        if manager.savedItems.contains(item){
+                        } else {
+                            manager.savedItems.append(item)
+                        }
                         
                     }) {
                         Image(systemName: "bookmark.fill")
@@ -43,7 +47,9 @@ struct VideoItemView: View {
                     
                 } else {
                     Button( action: {
-                        
+                        if manager.savedItems.contains(item){
+                            manager.savedItems.removeAll(where: {$0 == item})
+                        }
                     }) {
                         Image(systemName: "trash.fill")
                             .font(.system(size: 35))
@@ -54,7 +60,6 @@ struct VideoItemView: View {
                 }
                 
             }
-            
             .background(Color.init("titleBackGround"))
             .offset(x: 0, y: -24)
         }
@@ -63,10 +68,11 @@ struct VideoItemView: View {
     }
     
     
+    
 }
 
 struct VideoItemView_Previews: PreviewProvider {
     static var previews: some View {
-        VideoItemView()
+        VideoItemView( item: Item(href: "", links: [ItemLink(href: "", render: nil)], data: [Datum(nasaID: nil, myDescription: nil, dateCreated: nil, keywords: nil, title: nil, location: nil, description508: nil, photographer: nil, secondaryCreator: nil, album: nil)]))
     }
 }

@@ -11,7 +11,6 @@ import Combine
 
 class ContentModel: ObservableObject {
      @Published var items = [Item]()
-     @Published var savedItems = [Item]()
      @Published var isActivityIndicatorShowing = false
      @Published var text = ""
      @Published var errorMessage = ""
@@ -31,22 +30,9 @@ class ContentModel: ObservableObject {
                 }
             }, receiveValue: { [weak self] items in
                 self?.isActivityIndicatorShowing = false
-                //Simulate loading
-//                DispatchQueue.main.asyncAfter(deadline: .now() + 3, execute: {
                     self?.items = items
-//                })
             }).store(in: &subscriptions)
 
-    }
-    
-    func save(item: Item) {
-        savedItems.append(item)
-    }
-    
-    func delete(item: Item) {
-        if let index = savedItems.firstIndex(of: item) {
-            savedItems.remove(at: index)
-        }
     }
     
 }

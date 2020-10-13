@@ -15,7 +15,7 @@ struct iSpaceVideoApp: App {
         WindowGroup {
             TabView(selection: $selectedTap) {
                 ContentView()
-                    
+                    .environmentObject(PersistenceManager.shared)
                     .onTapGesture {
                         selectedTap = "videoList"
                     }
@@ -26,6 +26,7 @@ struct iSpaceVideoApp: App {
                     }
                     .tag("videoList")
                 SavedVideoList()
+                    .environmentObject(PersistenceManager.shared)
                     .tabItem {
                         Image(systemName: "list.dash")
                             .foregroundColor(Color.init("tabBarImageColor"))

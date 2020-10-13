@@ -6,13 +6,13 @@
 //
 
 import SwiftUI
-import CoreData
 import SDWebImageSwiftUI
 
 struct ContentView: View {
     @State private var searchTerm = ""
     @State private var isAlertShowing = false
-    @ObservedObject var viewModel = ContentModel()
+    @State private var isAlertShowingForVideo = false
+    @StateObject var viewModel = ContentModel()
 
     var body: some View {
         NavigationView{
@@ -39,7 +39,7 @@ struct ContentView: View {
                             
                             if let urlString = item.links.first?.href.formatURLString() {
                                 if urlString.hasSuffix("jpg") {
-                                    VideoItemView(image:
+                                    VideoItemView(item: item, image:
                                                     WebImage(url: URL(string: urlString), options: .delayPlaceholder)
                                                     .placeholder {
                                                         Image("placeholder")
