@@ -10,6 +10,7 @@
 		050A5F222535254500BF3D18 /* PersistenceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 050A5F212535254500BF3D18 /* PersistenceManager.swift */; };
 		050A5F27253530DA00BF3D18 /* WarningView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 050A5F26253530DA00BF3D18 /* WarningView.swift */; };
 		050A5F2C2536215F00BF3D18 /* SearchBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 050A5F2B2536215F00BF3D18 /* SearchBarView.swift */; };
+		050A5F3825362E9100BF3D18 /* SearchViewScreenObjectModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 050A5F3725362E9100BF3D18 /* SearchViewScreenObjectModel.swift */; };
 		0587D437253226B100ECA89E /* String+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0587D436253226B100ECA89E /* String+Extensions.swift */; };
 		0587D43C2532565B00ECA89E /* ContentModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0587D43B2532565B00ECA89E /* ContentModel.swift */; };
 		0595F2BC252EA2F3000ED0A4 /* iSpaceVideoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0595F2BB252EA2F3000ED0A4 /* iSpaceVideoApp.swift */; };
@@ -51,6 +52,7 @@
 		050A5F212535254500BF3D18 /* PersistenceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceManager.swift; sourceTree = "<group>"; };
 		050A5F26253530DA00BF3D18 /* WarningView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WarningView.swift; sourceTree = "<group>"; };
 		050A5F2B2536215F00BF3D18 /* SearchBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBarView.swift; sourceTree = "<group>"; };
+		050A5F3725362E9100BF3D18 /* SearchViewScreenObjectModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewScreenObjectModel.swift; sourceTree = "<group>"; };
 		0587D436253226B100ECA89E /* String+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extensions.swift"; sourceTree = "<group>"; };
 		0587D43B2532565B00ECA89E /* ContentModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentModel.swift; sourceTree = "<group>"; };
 		0595F2B8252EA2F3000ED0A4 /* iSpaceVideo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iSpaceVideo.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -111,6 +113,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		050A5F3625362E5F00BF3D18 /* ScreenObjectModel */ = {
+			isa = PBXGroup;
+			children = (
+				050A5F3725362E9100BF3D18 /* SearchViewScreenObjectModel.swift */,
+			);
+			path = ScreenObjectModel;
+			sourceTree = "<group>";
+		};
 		0587D441253283EB00ECA89E /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
@@ -178,6 +188,7 @@
 		0595F2DC252EA2F7000ED0A4 /* iSpaceVideoUITests */ = {
 			isa = PBXGroup;
 			children = (
+				050A5F3625362E5F00BF3D18 /* ScreenObjectModel */,
 				0595F2DD252EA2F7000ED0A4 /* iSpaceVideoUITests.swift */,
 				0595F2DF252EA2F7000ED0A4 /* Info.plist */,
 			);
@@ -529,6 +540,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0595F2DE252EA2F7000ED0A4 /* iSpaceVideoUITests.swift in Sources */,
+				050A5F3825362E9100BF3D18 /* SearchViewScreenObjectModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -683,7 +695,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.eugene-berezin-huluHW.iSpaceVideo";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -706,7 +718,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.eugene-berezin-huluHW.iSpaceVideo";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
